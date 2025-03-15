@@ -2,6 +2,7 @@ package apache.poi.api;
 
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -44,7 +45,13 @@ public class RetrieveExcelData {
                         Iterator<Cell> testCaseRowIterator = testCasesColumn.cellIterator();
                         while (testCaseRowIterator.hasNext())
                         {
-                            data.add(testCaseRowIterator.next().getStringCellValue());
+                            Cell cellType = testCaseRowIterator.next();
+                            if(cellType.getCellType() == CellType.STRING) {
+                                data.add(cellType.getStringCellValue());
+                            }
+                            else{
+                                data.add(cellType.getDateCellValue().toString());
+                            }
                         }
 
                     }
