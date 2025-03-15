@@ -1,6 +1,5 @@
 package apache.poi.api;
 
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -8,7 +7,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,7 +38,7 @@ public class RetrieveExcelData {
                 while (rowIterator.hasNext())
                 {
                     Row testCasesColumn = rowIterator.next();
-                    if(testCasesColumn.getCell(columnIndex).getStringCellValue().equalsIgnoreCase("Purchase"))
+                    if(testCasesColumn.getCell(columnIndex).getStringCellValue().equalsIgnoreCase(testcasename))
                     {
                         Iterator<Cell> testCaseRowIterator = testCasesColumn.cellIterator();
                         while (testCaseRowIterator.hasNext())
